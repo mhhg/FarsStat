@@ -2,7 +2,6 @@ import logging
 import sys
 
 for x in sys.path: print(x)
-from models.savReaderWriter import SavWriter
 from models import Cell, Column
 
 logger = logging.getLogger("FS")
@@ -49,10 +48,7 @@ class Writer(object):
         columns_name = Column.names_list()
         columns_type = Column.data_types_list()
         path = self.path
-        with SavWriter(path, columns_name, columns_type) as writer:
-            for record in records:
-                writer.writerow(record)
-
+        
     def write_as_xlsx(self):
         pass
 
